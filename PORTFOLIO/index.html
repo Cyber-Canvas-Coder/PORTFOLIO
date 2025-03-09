@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayantan Mondal - Portfolio</title>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body data-theme="dark">
+    <div class="background-animation">
+        <div class="circle-1"></div>
+        <div class="circle-2"></div>
+    </div>
+    <!-- Loader -->
+    <div class="loader-container">
+        <div class="hello-loader">
+            <span class="letter">H</span>
+            <span class="letter">e</span>
+            <span class="letter">l</span>
+            <span class="letter">l</span>
+            <span class="letter">o</span>
+            <span class="letter dot">.</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="bi bi-sun-fill" id="theme-icon"></i>
+    </button>
+    <div class="cursor"></div>
+    <div class="container">
+        <div class="left-section">
+            <h1 class="name">SAYANTAN MONDAL</h1>
+            <h2 class="title">I build things for the web.</h2>
+            <nav class="navigation">
+                <button class="nav-btn active" data-section="about"><span>01.</span> About</button>
+                <button class="nav-btn" data-section="experience"><span>02.</span> Experience</button>
+                <button class="nav-btn" data-section="projects"><span>03.</span> Projects</button>
+            </nav>
+            <div class="social-links">
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            </div>
+        </div>
+        <div class="right-section">
+            <section id="about" class="content-section active">
+                <h2><span>01.</span> About Me</h2>
+                <p>Hello! I'm Sayantan, a full-stack developer who enjoys building things that live on the internet. I develop exceptional websites and web applications that provide intuitive, pixel-perfect user interfaces with efficient and modern backends.</p>
+                <p>Here are a few technologies I've been working with recently:</p>
+                <ul class="skills-list">
+                  <li> HTML </li>
+                  <li> CSS </li>
+                  <li> JavaScript </li>
+                  <li> React </li>
+                  <li> Node.js </li>
+                  <li> MongoDB </li>
+                  <li> Java </li>
+                </ul>
+            </section>
+            <section id="experience" class="content-section">
+                <h2><span>02.</span> Experience</h2>
+                <div class="experience-item">
+                    <h3>Full-stack Developer</h3>
+                    <p class="company">@Company Name</p>
+                    <p class="duration">January 2022 - Present</p>
+                    <ul>
+                        <li>Developed and shipped highly interactive web applications for diverse business clients</li>
+                        <li>Built and delivered technical solutions according to stakeholder business requirements</li>
+                        <li>Worked with a variety of languages, platforms, frameworks, and content management systems</li>
+                        <li>Communicated with multi-disciplinary teams of engineers, designers, and clients on a daily basis</li>
+                    </ul>
+                </div>
+            </section>
+            <section id="projects" class="content-section">
+                <h2><span>03.</span> Some Things I've Built</h2>
+                <div class="project-grid">
+                    <div class="project-card visible">
+                        <div class="project-top">
+                            <i class="bi bi-folder2"></i>
+                            <div class="project-links">
+                                <a href="#" target="_blank" aria-label="GitHub Link"><i class="bi bi-github"></i></a>
+                                <a href="#" target="_blank" aria-label="External Link"><i class="bi bi-box-arrow-up-right"></i></a>
+                            </div>
+                        </div>
+                        <h3>Project One</h3>
+                        <p>A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Package Control, Visual Studio Marketplace, Atom Package Manager, and npm.</p>
+                        <ul class="project-tech-list">
+                            <li>VS Code</li>
+                            <li>Sublime Text</li>
+                            <li>Atom</li>
+                        </ul>
+                    </div>
+                    <div class="project-card visible">
+                        <div class="project-top">
+                            <i class="bi bi-folder2"></i>
+                            <div class="project-links">
+                                <a href="#" target="_blank" aria-label="GitHub Link"><i class="bi bi-github"></i></a>
+                                <a href="#" target="_blank" aria-label="External Link"><i class="bi bi-box-arrow-up-right"></i></a>
+                            </div>
+                        </div>
+                        <h3>Project Two</h3>
+                        <p>A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track.</p>
+                        <ul class="project-tech-list">
+                            <li>React</li>
+                            <li>Spotify API</li>
+                            <li>Styled Components</li>
+                        </ul>
+                    </div>
+                    <div class="project-card visible">
+                        <div class="project-top">
+                            <i class="bi bi-folder2"></i>
+                            <div class="project-links">
+                                <a href="#" target="_blank" aria-label="GitHub Link"><i class="bi bi-github"></i></a>
+                                <a href="#" target="_blank" aria-label="External Link"><i class="bi bi-box-arrow-up-right"></i></a>
+                            </div>
+                        </div>
+                        <h3>AI-Powered Chat Application</h3>
+                        <p>A real-time chat application with AI-powered features including sentiment analysis, language translation, and smart responses. Built with WebSocket for real-time communication and integrated with OpenAI's GPT API.</p>
+                        <ul class="project-tech-list">
+                            <li>React</li>
+                            <li>Node.js</li>
+                            <li>WebSocket</li>
+                            <li>OpenAI API</li>
+                        </ul>
+                    </div>
+                    <div class="project-card hidden">
+                        <div class="project-top">
+                            <i class="bi bi-folder2"></i>
+                            <div class="project-links">
+                                <a href="#" target="_blank" aria-label="GitHub Link"><i class="bi bi-github"></i></a>
+                                <a href="#" target="_blank" aria-label="External Link"><i class="bi bi-box-arrow-up-right"></i></a>
+                            </div>
+                        </div>
+                        <h3>E-Commerce Dashboard</h3>
+                        <p>A comprehensive admin dashboard for e-commerce platforms featuring real-time analytics, inventory management, and sales tracking. Includes customizable charts and data visualization components.</p>
+                        <ul class="project-tech-list">
+                            <li>Next.js</li>
+                            <li>TypeScript</li>
+                            <li>Tailwind CSS</li>
+                            <li>Chart.js</li>
+                        </ul>
+                    </div>
+                    <div class="project-card hidden">
+                        <div class="project-top">
+                            <i class="bi bi-folder2"></i>
+                            <div class="project-links">
+                                <a href="#" target="_blank" aria-label="GitHub Link"><i class="bi bi-github"></i></a>
+                                <a href="#" target="_blank" aria-label="External Link"><i class="bi bi-box-arrow-up-right"></i></a>
+                            </div>
+                        </div>
+                        <h3>Fitness Tracking App</h3>
+                        <p>A mobile-first web application for tracking workouts, nutrition, and fitness goals. Features include custom workout plans, progress tracking, and social sharing capabilities.</p>
+                        <ul class="project-tech-list">
+                            <li>React Native</li>
+                            <li>Redux</li>
+                            <li>Firebase</li>
+                            <li>GraphQL</li>
+                        </ul>
+                    </div>
+                    
+                
+                <div class="load-more-container">
+                    <button class="load-more-btn">
+                        <span>Show More</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="loader.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Theme Toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            themeIcon.className = theme === 'light' ? 'bi bi-moon-fill' : 'bi bi-sun-fill';
+        }
+    </script>
+</body>
+</html> 
