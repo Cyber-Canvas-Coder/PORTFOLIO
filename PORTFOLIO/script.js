@@ -268,6 +268,59 @@ document.addEventListener("DOMContentLoaded", () => {
     section.style.opacity = "1";
     section.style.visibility = "visible";
   });
+
+  // Show the initial section (about)
+  const initialSection = document.querySelector("#about");
+  if (initialSection) {
+    initialSection.classList.add("active");
+  }
+
+  // Set up navigation
+  const navButtons = document.querySelectorAll(".nav-btn");
+  navButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // Remove active class from all sections
+      document.querySelectorAll(".content-section").forEach((section) => {
+        section.classList.remove("active");
+      });
+
+      // Add active class to target section
+      const targetId = button.getAttribute("data-section");
+      const targetSection = document.querySelector(`#${targetId}`);
+      if (targetSection) {
+        targetSection.classList.add("active");
+      }
+
+      // Update navigation button states
+      navButtons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+    });
+  });
+
+  // Handle "Show More" functionality for projects
+  const loadMoreBtn = document.querySelector(".load-more-btn");
+  const hiddenProjects = document.querySelectorAll(".project-card.hidden");
+
+  if (loadMoreBtn && hiddenProjects.length > 0) {
+    loadMoreBtn.addEventListener("click", () => {
+      hiddenProjects.forEach((project) => {
+        project.classList.remove("hidden");
+        project.classList.add("visible");
+      });
+
+      // Update button text and icon
+      const buttonText = loadMoreBtn.querySelector("span");
+      const buttonIcon = loadMoreBtn.querySelector("i");
+
+      if (buttonText && buttonIcon) {
+        buttonText.textContent = "Show Less";
+        buttonIcon.classList.remove("bi-chevron-down");
+        buttonIcon.classList.add("bi-chevron-up");
+      }
+
+      loadMoreBtn.classList.add("expanded");
+    });
+  }
 });
 
 // Update ScrollTrigger on resize
@@ -307,45 +360,6 @@ function initSectionAnimations() {
         scroller: scroller,
       },
     });
-  });
-}
-
-// Load More Projects Functionality
-const loadMoreBtn = document.querySelector(".load-more-btn");
-const hiddenProjects = document.querySelectorAll(".project-card.hidden");
-let isExpanded = false;
-
-if (loadMoreBtn) {
-  loadMoreBtn.addEventListener("click", () => {
-    isExpanded = !isExpanded;
-
-    // Update button text and icon immediately
-    loadMoreBtn.querySelector("span").textContent = isExpanded
-      ? "Show Less"
-      : "Show More";
-    loadMoreBtn.classList.toggle("expanded");
-
-    if (isExpanded) {
-      // Show all projects immediately
-      hiddenProjects.forEach((project) => {
-        project.classList.remove("hidden");
-        project.classList.add("visible");
-        project.style.opacity = "1";
-        project.style.transform = "none";
-      });
-    } else {
-      // Hide projects immediately
-      hiddenProjects.forEach((project) => {
-        project.classList.remove("visible");
-        project.classList.add("hidden");
-      });
-
-      // Smooth scroll to the third project
-      const thirdProject = document.querySelector(".project-card:nth-child(3)");
-      if (thirdProject) {
-        thirdProject.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    }
   });
 }
 
