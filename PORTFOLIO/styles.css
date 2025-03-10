@@ -382,26 +382,36 @@ body::before {
 
 /* Experience Section */
 #experience {
-    display: block;
-    opacity: 1;
-    visibility: visible;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    min-height: auto;
+}
+
+#experience.content-section {
+    opacity: 1 !important;
+    visibility: visible !important;
+    min-height: auto;
+    padding: 50px 0;
+    transform: none;
 }
 
 .experience-content {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
     opacity: 1;
     visibility: visible;
 }
 
 .experience-item {
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
     padding: 2.5rem;
     transition: var(--transition);
     position: relative;
     border: 1px solid transparent;
     border-radius: 16px;
+    margin-top: 30px;
 }
 
 .experience-item:hover {
@@ -572,9 +582,10 @@ li::before {
 #projects.content-section {
     opacity: 1;
     visibility: visible;
-    padding-top: 100px;
+    padding: 50px 0;
     max-width: 1000px;
     margin: 0 auto;
+    min-height: auto;
 }
 
 /* Hide the folder icon since we're not using it anymore */
@@ -768,13 +779,6 @@ li::before {
 
 .about-text {
     max-width: 800px;
-}
-
-/* Experience Section */
-.experience-content {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
 }
 
 /* Contact Section */
@@ -1164,13 +1168,37 @@ html {
 .project-item {
     background: var(--light-navy);
     border-radius: 4px;
-    padding: 25px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
 }
 
 .project-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px -15px var(--shadow-color);
+}
+
+.project-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    filter: grayscale(20%) contrast(1) brightness(90%);
+}
+
+.project-item:hover .project-image img {
+    transform: scale(1.05);
+    filter: none;
+}
+
+.project-content {
+    padding: 25px;
 }
 
 .project-content h3 {
@@ -1209,10 +1237,6 @@ html {
 
 .project-tech-list li:hover {
     background-color: var(--hover-bg);
-}
-
-.project-tech-list li::before {
-    content: none;
 }
 
 .project-links {
@@ -1255,4 +1279,457 @@ html {
     padding: 50px 0;
     max-width: 1000px;
     margin: 0 auto;
+    min-height: auto;
+}
+
+/* Base responsive styles */
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .right-section {
+        width: 65%;
+        margin-left: 35%;
+        padding: 3rem;
+    }
+
+    .left-section {
+        width: 35%;
+        padding: 3rem;
+    }
+}
+
+@media (max-width: 992px) {
+    /* Layout fixes for tablet and mobile */
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .right-section {
+        width: 100%;
+        margin-left: 0;
+        padding: 20px;
+        position: relative;
+        overflow: visible;
+    }
+
+    .left-section {
+        width: 100%;
+        position: relative;
+        padding: 20px;
+        height: auto;
+        min-height: auto;
+    }
+
+    /* Navigation adjustments */
+    .navigation {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin: 20px 0;
+    }
+
+    .nav-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+        background: var(--light-navy);
+        border-radius: 4px;
+    }
+
+    .nav-btn.active {
+        transform: none;
+        background: var(--hover-bg);
+    }
+
+    .name {
+        font-size: 32px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    /* Project section adjustments */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+    }
+
+    .project-image {
+        height: 160px;
+    }
+
+    .project-content h3 {
+        font-size: 18px;
+    }
+
+    .project-content p {
+        font-size: 13px;
+    }
+
+    .project-tech-list li {
+        font-size: 11px;
+        padding: 3px 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile specific fixes */
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .right-section,
+    .left-section {
+        padding: 10px;
+    }
+
+    .content-section {
+        padding: 20px 0;
+        margin-bottom: 10px;
+        min-height: auto;
+    }
+
+    .name, .title {
+        text-align: center;
+        width: 100%;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    /* Project tech list alignment fix */
+    .project-tech-list {
+        justify-content: flex-start;
+        gap: 8px;
+        margin: 12px 0;
+    }
+
+    .project-tech-list li {
+        margin-right: 0;
+    }
+
+    /* Ensure project links are left aligned */
+    .project-links {
+        justify-content: flex-start;
+    }
+
+    .navigation {
+        gap: 8px;
+        margin: 15px 0;
+    }
+
+    .nav-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    /* Project section adjustments */
+    #projects.content-section {
+        padding: 15px 0;
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 8px;
+        margin-top: 15px;
+    }
+
+    .project-item {
+        margin-bottom: 15px;
+    }
+
+    .project-image {
+        height: 160px;
+    }
+
+    .project-content {
+        padding: 12px;
+    }
+
+    .project-content h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .project-content p {
+        margin-bottom: 10px;
+    }
+
+    .project-tech-list {
+        gap: 6px;
+        margin: 10px 0;
+    }
+
+    /* Skills list adjustments */
+    .skills-list {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        margin-top: 10px;
+    }
+
+    .skills-list li {
+        margin-bottom: 8px;
+    }
+
+    /* Experience section adjustments */
+    #experience.content-section {
+        padding: 20px 0;
+        margin: 0;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .experience-content {
+        gap: 1rem;
+        padding: 0 10px;
+    }
+
+    .experience-item {
+        background: var(--light-navy);
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 4px;
+        border: 1px solid var(--blur-border);
+    }
+
+    .experience-item h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: var(--lightest-slate);
+    }
+
+    .company {
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: var(--green);
+    }
+
+    .duration {
+        font-size: 12px;
+        margin-bottom: 10px;
+        color: var(--slate);
+    }
+
+    .experience-item ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .experience-item li {
+        font-size: 14px;
+        margin-bottom: 8px;
+        line-height: 1.5;
+        color: var(--slate);
+    }
+
+    .experience-item li:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+
+    .right-section,
+    .left-section {
+        padding: 8px;
+    }
+
+    .content-section {
+        padding: 15px 0;
+    }
+
+    .navigation {
+        margin-top: 10px;
+        gap: 6px;
+    }
+
+    .nav-btn {
+        padding: 5px 10px;
+    }
+
+    /* Project section adjustments */
+    .projects-grid {
+        gap: 12px;
+    }
+
+    .project-item {
+        margin-bottom: 12px;
+    }
+
+    .project-content {
+        padding: 10px;
+    }
+
+    .project-tech-list {
+        gap: 5px;
+        margin: 8px 0;
+    }
+
+    .project-links {
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    /* Reduce section title margins */
+    #projects h2,
+    #experience h2,
+    #about h2 {
+        margin-bottom: 15px;
+    }
+
+    #experience.content-section {
+        padding: 15px 0;
+    }
+
+    .experience-content {
+        padding: 0 8px;
+    }
+
+    .experience-item {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    .experience-item h3 {
+        font-size: 16px;
+    }
+
+    .company {
+        font-size: 13px;
+    }
+
+    .duration {
+        font-size: 11px;
+    }
+
+    .experience-item li {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .name {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    /* Project tech list smaller screens */
+    .project-tech-list {
+        gap: 6px;
+        margin: 10px 0;
+    }
+
+    .project-tech-list li {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+}
+
+/* Theme toggle responsive adjustments */
+@media (max-width: 992px) {
+    .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5rem;
+    }
+
+    .theme-toggle i {
+        font-size: 1rem;
+    }
+}
+
+/* Cursor adjustments for touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .cursor {
+        display: none;
+    }
+
+    .project-item:hover,
+    .nav-btn:hover,
+    .project-tech-list li:hover,
+    .project-links a:hover {
+        transform: none;
+    }
+}
+
+/* Loader responsive adjustments */
+@media (max-width: 768px) {
+    .letter {
+        font-size: clamp(3rem, 10vw, 8rem);
+    }
+}
+
+/* Background animation responsive adjustments */
+@media (max-width: 992px) {
+    .circle-1 {
+        width: 800px;
+        height: 800px;
+    }
+
+    .circle-2 {
+        width: 1000px;
+        height: 1000px;
+    }
+}
+
+@media (max-width: 768px) {
+    .circle-1 {
+        width: 600px;
+        height: 600px;
+    }
+
+    .circle-2 {
+        width: 800px;
+        height: 800px;
+    }
+}
+
+/* Smooth scrolling adjustment for mobile */
+@media (max-width: 768px) {
+    .right-section {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Fix for iOS Safari 100vh issue */
+@supports (-webkit-touch-callout: none) {
+    .left-section,
+    .right-section {
+        height: -webkit-fill-available;
+    }
+}
+
+/* Fix for iOS momentum scrolling */
+@supports (-webkit-overflow-scrolling: touch) {
+    .right-section {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .content-section {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
 }
